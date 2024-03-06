@@ -1,0 +1,16 @@
+<% if (email) { %>
+    <h1>Welcome to <%= email %></h1>
+    <button onclick="logout()">Logout</button>
+    <script>
+        const email = '<%= email %>';
+        if (email && window.opener) {
+            document.write('<h1>Welcome to ' + email + '</h1>');
+            window.opener.postMessage({ email: email }, '*');
+            window.close();
+        }
+
+        function logout() {
+            window.location.href = '/';
+        }
+    </script>
+<% } %>

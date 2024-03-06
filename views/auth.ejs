@@ -1,0 +1,18 @@
+<button id="signInButton" style="margin-left: 40%;font-size: 20px; padding: 5px; margin-top: 20px;" onclick="signInWithGoogle()">Sign in With Google</button>
+
+<script>
+function signInWithGoogle() {
+    const width = 580;
+    const height = 600;
+    const left = (window.innerWidth - width) / 2;
+    const top = (window.innerHeight - height) / 2;
+    const options = `width=${width},height=${height},left=${left},top=${top},location=yes,toolbar=no,menubar=no`;
+
+    const authWindow = window.open('/auth/google', '_blank', options);
+    authWindow.focus();
+}
+
+window.addEventListener('message', function(event) {
+    window.location.href = '/success';
+});
+</script>
