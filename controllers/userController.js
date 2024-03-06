@@ -9,7 +9,7 @@ const successGoogleLogin = (req, res) => {
 
 const failureGoogleLogin = (req, res) => { 
     res.send("Error");
-}
+} 
 
 module.exports = {
     loadAuth,
