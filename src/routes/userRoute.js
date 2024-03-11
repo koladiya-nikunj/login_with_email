@@ -11,9 +11,10 @@ const userController = require('../controllers/userController');
 router.get('/', userController.loadAuth);
 
 // Auth 
-router.get('/auth/google' , passport.authenticate('google', { scope: 
-	[ 'email', 'profile' ] 
-})); 
+router.get('/auth/google', passport.authenticate('google', {
+    scope: ['email', 'profile', 'https://www.googleapis.com/auth/userinfo.email'],
+    prompt: 'select_account'
+}));
 
 // Auth Callback 
 router.get( '/auth/google/callback', 
